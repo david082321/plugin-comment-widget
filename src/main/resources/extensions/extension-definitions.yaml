@@ -5,5 +5,5 @@ metadata:
 spec:
   className: run.halo.comment.widget.DefaultCommentWidget
   extensionPointName: comment-widget
-  displayName: "默认评论组件"
-  description: "Halo 默认提供的评论组件插件"
+  displayName: "預設評論元件"
+  description: "Halo 預設提供的評論元件外掛程式"
