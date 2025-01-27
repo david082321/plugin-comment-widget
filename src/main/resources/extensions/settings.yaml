@@ -5,26 +5,26 @@ metadata:
 spec:
   forms:
     - group: basic
-      label: 基本设置
+      label: 基本設定
       formSchema:
         - $formkit: number
-          label: 评论分页条数
+          label: 評論分頁條數
           name: size
           validation: required
           value: 20
         - $formkit: number
-          label: 回复分页条数
+          label: 回復分頁條數
           name: replySize
           validation: required
           value: 10
         - $formkit: checkbox
-          label: 同时加载评论的回复
+          label: 同時載入評論的回覆
           name: withReplies
           id: withReplies
           key: withReplies
           value: false
         - $formkit: number
-          label: 同时加载回复的条数
+          label: 同時載入回復的條數
           if: "$get(withReplies).value === true"
           name: withReplySize
           id: withReplySize
@@ -32,42 +32,42 @@ spec:
           validation: required
           value: 5
     - group: security
-      label: 安全设置
+      label: 安全設定
       formSchema:
         - $formkit: group
           name: captcha
-          label: 验证码
+          label: 驗證碼
           value:
             enable: false
             type: ALPHANUMERIC
           children:
             - $formkit: checkbox
-              label: 匿名评论需要验证码
+              label: 匿名評論需要驗證碼
               name: anonymousCommentCaptcha
               id: anonymousCommentCaptcha
               key: anonymousCommentCaptcha
               value: false
             - $formkit: select
-              label: 验证码类型
+              label: 驗證碼類型
               if: "$get(anonymousCommentCaptcha).value === true"
               name: type
               value: "ALPHANUMERIC"
               options:
-                - label: 字母数字组合
+                - label: 字母數字組合
                   value: "ALPHANUMERIC"
-                - label: 算术验证码
+                - label: 算術驗證碼
                   value: "ARITHMETIC"
     - group: avatar
-      label: 头像设置
+      label: 大頭貼設定
       formSchema:
         - $formkit: checkbox
-          label: 是否启用第三方头像
+          label: 是否啟用第三方大頭貼
           name: enable
           id: enable
           key: enable
           value: false
         - $formkit: select
-          label: 头像服务提供者
+          label: 大頭貼服務提供者
           if: "$get(enable).value === true"
           name: provider
           options:
@@ -75,20 +75,20 @@ spec:
               value: "gravatar"
           value: "gravatar"
         - $formkit: text
-          label: 头像服务镜像地址
+          label: 大頭貼服務鏡像地址
           if: "$get(enable).value === true"
           name: providerMirror
           value: ""
-          help: 使用官方源则留空, 示例：https://gravatar.com
+          help: 使用官方源則留空, 範例：https://gravatar.com
         - $formkit: select
-          label: 头像策略
+          label: 大頭貼策略
           if: "$get(enable).value === true"
           name: policy
           options:
-            - label: "仅匿名用户"
+            - label: "僅匿名使用者"
               value: "anonymousUser"
-            - label: "所有用户"
+            - label: "所有使用者"
               value: "allUser"
-            - label: "匿名&无头像用户"
+            - label: "匿名&無大頭貼使用者"
               value: "noAvatarUser"
           value: "anonymousUser"
